@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мини-Игры</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎮 Мини-Игры</h1>
+        <nav>
+            <button onclick="showGame('menu')">Главная</button>
+            <button onclick="showGame('snake')">Змейка</button>
+            <button onclick="showGame('tic-tac-toe')">Крестики-нолики</button>
+            <button onclick="showGame('memory')">Память</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Главное меню -->
+        <div id="menu" class="game-container active">
+            <h2>Добро пожаловать!</h2>
+            <p>Выберите игру из меню выше</p>
+            <div class="game-cards">
+                <div class="card" onclick="showGame('snake')">
+                    <h3>Змейка</h3>
+                    <p>Классическая игра</p>
+                </div>
+                <div class="card" onclick="showGame('tic-tac-toe')">
+                    <h3>Крестики-нолики</h3>
+                    <p>Игра для двух игроков</p>
+                </div>
+                <div class="card" onclick="showGame('memory')">
+                    <h3>Память</h3>
+                    <p>Найди парные карточки</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Игра Змейка -->
+        <div id="snake" class="game-container">
+            <h2>Змейка</h2>
+            <canvas id="snakeCanvas" width="400" height="400"></canvas>
+            <div class="controls">
+                <p>Счет: <span id="score">0</span></p>
+                <button onclick="resetSnake()">Новая игра</button>
+            </div>
+        </div>
+
+        <!-- Крестики-нолики -->
+        <div id="tic-tac-toe" class="game-container">
+            <h2>Крестики-Нолики</h2>
+            <div class="board" id="board">
+                <div class="cell" onclick="makeMove(0)"></div>
+                <div class="cell" onclick="makeMove(1)"></div>
+                <div class="cell" onclick="makeMove(2)"></div>
+                <div class="cell" onclick="makeMove(3)"></div>
+                <div class="cell" onclick="makeMove(4)"></div>
+                <div class="cell" onclick="makeMove(5)"></div>
+                <div class="cell" onclick="makeMove(6)"></div>
+                <div class="cell" onclick="makeMove(7)"></div>
+                <div class="cell" onclick="makeMove(8)"></div>
+            </div>
+            <div class="status" id="status">Ход: X</div>
+            <button onclick="resetTicTacToe()">Новая игра</button>
+        </div>
+
+        <!-- Игра на память -->
+        <div id="memory" class="game-container">
+            <h2>Игра на память</h2>
+            <div class="memory-board" id="memoryBoard"></div>
+            <div class="memory-info">
+                <p>Попытки: <span id="attempts">0</span></p>
+                <button onclick="resetMemory()">Новая игра</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
